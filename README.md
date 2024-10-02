@@ -18,7 +18,11 @@ conda activate DRESSllm
 
 ## Dataset
 
-`dataset/Train_Shakespeare.json` and `dataset/Train_DRC.json` are two datasets we created for the language style transfer task, namely the Shakespearean style and the dialogue style of characters in Dream of the Red Chamber. For each piece of data,  `question`, `correct_answers`, and `incorrect_answers` are respectively input, target style output, and ordinary style output (i.e., generic featureless output), and the two outputs are almost semantically equivalent. For more information about the dataset, please refer to the paper.
+`dataset/Train_Shakespeare.json` and `dataset/Train_DRC.json` are the two training datasets we created for the language style transfer task, namely the Shakespearean style and the dialogue style of characters in Dream of the Red Chamber. For each piece of data,  `question`, `correct_answers`, and `incorrect_answers` are respectively input, target style output, and ordinary style output (i.e., generic featureless output), and the two outputs are almost semantically equivalent. 
+
+The testing sets are `dataset/Valid_Shakespeare.json` and `dataset/Valid_DRC.json` respectively. We only use the `question` for testing.
+
+For more information about the dataset, please refer to the paper.
 
 ## Workflow
 
