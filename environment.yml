@@ -206,7 +206,7 @@ dependencies:
       - array-record==0.2.0
       - astunparse==1.6.3
       - async-timeout==4.0.2
-      - baukit==0.0.1
+      - baukit @ git+https://github.com/davidbau/baukit.git@main
       - bert-score==0.3.13
       - cachetools==5.3.0
       - charset-normalizer==2.1.1

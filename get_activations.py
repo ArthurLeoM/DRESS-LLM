@@ -51,10 +51,16 @@ def main():
     all_head_wise_activations = []
 
     print("Getting activations")
+    import gc
     for prompt in tqdm(prompts):
         layer_wise_activations, head_wise_activations, _ = get_llama_activations_bau(model, prompt, device)
-        all_layer_wise_activations.append(layer_wise_activations[:,-1,:])
-        all_head_wise_activations.append(head_wise_activations[:,-1,:])
+        layer_wise_activations_wanted = layer_wise_activations[:,-1,:].copy()
+        head_wise_activations_wanted = head_wise_activations[:,-1,:].copy()
+        del layer_wise_activations, head_wise_activations, _
+        all_layer_wise_activations.append(layer_wise_activations_wanted)
+        all_head_wise_activations.append(head_wise_activations_wanted)
+
+        gc.collect()
 
     print("Saving labels")
     np.save(f'features/{args.model_name}_{args.dataset_name}_labels.npy', labels)
